@@ -17,7 +17,7 @@ public class MargheritaPizza extends AbstractPizza {
 	public String toString() {
 		String pizzaStr;
 		
-		pizzaStr = "Type:\tMargherita\n";
+		pizzaStr = "Type:\t\t\tMargherita\n";
 		pizzaStr += super.toString();
 		
 		return pizzaStr;

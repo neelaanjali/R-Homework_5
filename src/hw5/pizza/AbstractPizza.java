@@ -27,12 +27,12 @@ public abstract class AbstractPizza {
 	public String toString() {
 		String pizzaStr;
 		
-		pizzaStr = "Toppings:\n" + toppingList + "\n";
+		pizzaStr = "Toppings:\t\t" + toppingList + "\n";
 		pizzaStr += "Price without toppings:\t" + priceWithoutToppings + "\n";
-		pizzaStr += "Total Price:\t" + totalPrice + "\n";
-		pizzaStr += "Order ID\t" + pizzaOrderID + "\n";
-		pizzaStr += "Cooking strategy:\t" + cookingStrategy.toString() + "\n";
-		pizzaStr += "Cooking price:\t" + cookingPrice + "\n";
+		pizzaStr += "Total Price:\t\t" + totalPrice + "\n";
+		pizzaStr += "Order ID:\t\t" + pizzaOrderID + "\n";
+		pizzaStr += "Cooking strategy:\t" + cookingStrategy + "\n";
+		pizzaStr += "Cooking price:\t\t" + cookingPrice + "\n";
 		
 		return pizzaStr;
 		

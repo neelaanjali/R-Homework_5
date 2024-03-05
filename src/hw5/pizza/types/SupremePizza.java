@@ -16,7 +16,7 @@ public class SupremePizza extends AbstractPizza {
 	public String toString() {
 		String pizzaStr;
 		
-		pizzaStr = "Type:\tSupreme\n";
+		pizzaStr = "Type:\t\t\tSupreme\n";
 		pizzaStr += super.toString();
 		
 		return pizzaStr;
