@@ -19,7 +19,7 @@ public abstract class AbstractPizza {
 	//default constructor
 	protected AbstractPizza() {
 		toppingList = new ArrayList<Toppings>();
-		++AbstractPizza.orderIDCounter;
+		pizzaOrderID = ++AbstractPizza.orderIDCounter;
 	}
 	
 	//toString method which will be used by the subclasses
