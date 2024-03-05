@@ -12,13 +12,30 @@ public abstract class AbstractPizza {
 	protected double priceWithoutToppings;
 	protected double totalPrice;
 	protected int pizzaOrderID;
-	protected static int orderIDCounter;
+	protected static int orderIDCounter = 0;
 	protected ICookingStrategy cookingStrategy;
 	protected double cookingPrice;
 	
 	//default constructor
-	AbstractPizza() {
+	protected AbstractPizza() {
 		toppingList = new ArrayList<Toppings>();
+		++AbstractPizza.orderIDCounter;
+	}
+	
+	//toString method which will be used by the subclasses
+	@Override
+	public String toString() {
+		String pizzaStr;
+		
+		pizzaStr = "Toppings:\n" + toppingList + "\n";
+		pizzaStr += "Price without toppings:\t" + priceWithoutToppings + "\n";
+		pizzaStr += "Total Price:\t" + totalPrice + "\n";
+		pizzaStr += "Order ID\t" + pizzaOrderID + "\n";
+		pizzaStr += "Cooking strategy:\t" + cookingStrategy.toString() + "\n";
+		pizzaStr += "Cooking price:\t" + cookingPrice + "\n";
+		
+		return pizzaStr;
+		
 	}
 
 	
