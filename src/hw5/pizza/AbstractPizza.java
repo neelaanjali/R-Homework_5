@@ -37,7 +37,6 @@ public abstract class AbstractPizza {
 		return pizzaStr;
 		
 	}
-
 	
 	//getters and setters
 	//as of this version, all getters are public and all setters are protected
@@ -46,7 +45,7 @@ public abstract class AbstractPizza {
 		return toppingList;
 	}
 
-	protected void setToppingList(List<Toppings> toppingList) {
+	public void setToppingList(List<Toppings> toppingList) {
 		this.toppingList = toppingList;
 	}
 
@@ -54,7 +53,7 @@ public abstract class AbstractPizza {
 		return priceWithoutToppings;
 	}
 
-	protected void setPriceWithoutToppings(double priceWithoutToppings) {
+	public void setPriceWithoutToppings(double priceWithoutToppings) {
 		this.priceWithoutToppings = priceWithoutToppings;
 	}
 
@@ -62,7 +61,7 @@ public abstract class AbstractPizza {
 		return totalPrice;
 	}
 
-	protected void setTotalPrice(double totalPrice) {
+	public void setTotalPrice(double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 
@@ -70,7 +69,7 @@ public abstract class AbstractPizza {
 		return pizzaOrderID;
 	}
 
-	protected void setPizzaOrderID(int pizzaOrderID) {
+	public void setPizzaOrderID(int pizzaOrderID) {
 		this.pizzaOrderID = pizzaOrderID;
 	}
 
@@ -78,7 +77,7 @@ public abstract class AbstractPizza {
 		return cookingStrategy;
 	}
 
-	protected void setCookingStrategy(ICookingStrategy cookingStrategy) {
+	public void setCookingStrategy(ICookingStrategy cookingStrategy) {
 		this.cookingStrategy = cookingStrategy;
 	}
 
@@ -86,7 +85,7 @@ public abstract class AbstractPizza {
 		return cookingPrice;
 	}
 
-	protected void setCookingPrice(double cookingPrice) {
+	public void setCookingPrice(double cookingPrice) {
 		this.cookingPrice = cookingPrice;
 	}
 
