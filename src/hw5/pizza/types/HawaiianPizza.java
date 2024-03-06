@@ -10,6 +10,14 @@ public class HawaiianPizza extends AbstractPizza {
 	//default constructor
 	public HawaiianPizza() {
 		super();
+		
+		//add default toppings:
+		toppingList.add(Toppings.CANADIAN_BACON);
+		toppingList.add(Toppings.CHEESE);
+		toppingList.add(Toppings.PINEAPPLE);
+		
+		//set default price without toppings:
+		this.priceWithoutToppings = 3.00;
 	}
 	
 	@Override
@@ -33,4 +41,24 @@ public class HawaiianPizza extends AbstractPizza {
 		cookingPrice = oldPizza.cookingPrice;
 	}
 	
+	//Abstract method implementations:
+	//The details of these two methods are described in detail in the AbstractPizza class
+	@Override 
+	protected double addToppingsToPrice(double priceWithoutToppings) {
+		//first get total price of all toppings:
+		double toppingsPrice = 0.0;
+		for (Toppings topping : toppingList) {
+			toppingsPrice += topping.getToppingPrice();
+		}
+		
+		this.priceWithoutToppings = priceWithoutToppings;
+		this.totalPrice = this.priceWithoutToppings + toppingsPrice;
+		return this.totalPrice;
+	}
+	
+	@Override
+	public double updatePizzaPrice() {
+		return addToppingsToPrice(priceWithoutToppings);
+	}
+		
 }

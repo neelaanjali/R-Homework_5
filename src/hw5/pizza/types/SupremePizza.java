@@ -10,6 +10,18 @@ public class SupremePizza extends AbstractPizza {
 	//default constructor
 	public SupremePizza() {
 		super();
+		
+		//add default toppings:
+		toppingList.add(Toppings.TOMATO);
+		toppingList.add(Toppings.CHEESE);
+		toppingList.add(Toppings.BELL_PEPPER);
+		toppingList.add(Toppings.ITALIAN_SAUSAGE);
+		toppingList.add(Toppings.PEPPERONI);
+		toppingList.add(Toppings.BLACK_OLIVE);
+		toppingList.add(Toppings.MUSHROOM);
+		
+		//set default price without toppings:
+		this.priceWithoutToppings = 3.50;
 	}
 	
 	@Override
@@ -33,4 +45,24 @@ public class SupremePizza extends AbstractPizza {
 		cookingPrice = oldPizza.cookingPrice;
 	}
 
+	//Abstract method implementations:
+	//The details of these two methods are described in detail in the AbstractPizza class
+	@Override 
+	protected double addToppingsToPrice(double priceWithoutToppings) {
+		//first get total price of all toppings:
+		double toppingsPrice = 0.0;
+		for (Toppings topping : toppingList) {
+			toppingsPrice += topping.getToppingPrice();
+		}
+		
+		this.priceWithoutToppings = priceWithoutToppings;
+		this.totalPrice = this.priceWithoutToppings + toppingsPrice;
+		return this.totalPrice;
+	}
+	
+	@Override
+	public double updatePizzaPrice() {
+		return addToppingsToPrice(priceWithoutToppings);
+	}
+	
 }
