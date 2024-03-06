@@ -94,5 +94,14 @@ public abstract class AbstractPizza {
 	}
 	
 	
+	// Abstract methods to be implemented in subclasses:
+	
+	//This method calculates the total price of the pizza using priceWithoutToppings
+	//and the prices of each topping in the toppingsList. 
+	protected abstract double addToppingsToPrice(double priceWithoutToppings);
+	
+	//This method calculates and updates the totalPrice of the pizza using 
+	//priceWithoutToppings attribute and the prices of each topping in toppingsList.
+	public abstract double updatePizzaPrice();
 		
 }
