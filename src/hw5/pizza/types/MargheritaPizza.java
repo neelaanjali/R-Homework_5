@@ -42,25 +42,5 @@ public class MargheritaPizza extends AbstractPizza {
 		cookingPrice = oldPizza.cookingPrice;
 	}
 	
-	//Abstract method implementations:
-	//The details of these two methods are described in detail in the AbstractPizza class
-	@Override 
-	protected double addToppingsToPrice(double priceWithoutToppings) {
-		double toppingsPrice = 0.0;
-		//first get total price of all toppings:
-		for (Toppings topping : toppingList) {
-			toppingsPrice += topping.getToppingPrice();
-		}
-		
-		this.priceWithoutToppings = priceWithoutToppings;
-		this.totalPrice = this.priceWithoutToppings + toppingsPrice;
-		return this.totalPrice;
-	}
-	
-	@Override
-	public double updatePizzaPrice() {
-		return addToppingsToPrice(priceWithoutToppings);
-	}
-	
 	
 }
