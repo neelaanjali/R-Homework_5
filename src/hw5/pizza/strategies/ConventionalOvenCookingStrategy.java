@@ -7,8 +7,10 @@ public class ConventionalOvenCookingStrategy implements ICookingStrategy  {
 
 	@Override
 	public boolean cook(AbstractPizza pizza) {
-		
-		return false;
+		pizza.setCookingPrice(8.0);
+		pizza.setCookingStrategy(this);
+		pizza.updatePizzaPrice();
+		return true;
 	}
 
 }
