@@ -5,3 +5,4 @@ public enum CookingStyleType {
 	CONVENTIONAL_OVEN,
 	BRICK_OVEN
 }
+
