@@ -34,6 +34,28 @@ public class PizzaOrder {
 	            System.out.println("Sorry pizza Order ID " + orderID + " not found.");
 	        }
 	    }
+	    
+	    public boolean isThereAnyUncookedPizza() {
+	    	for (AbstractPizza pizza : pizzaOrderList) {
+	    		if(pizza.getCookingStrategy() == null) {
+	    			return true;
+	    		}
+	    	}
+	    	return false;
+	    }
+	    
+	    public double checkout() throws Exception{
+	    	boolean uncookedPizzas = isThereAnyUncookedPizza();
+	    	double totalPrice = 0;
+	    	if (uncookedPizzas == true) {
+	    		throw new Exception("At least one pizza is uncooked. Please assign a cooking strategy to each pizza");
+	    	}else {
+	    		for (AbstractPizza pizza : pizzaOrderList) {
+	    			totalPrice += pizza.getTotalPrice();
+	    		}
+	    	}
+	    	return totalPrice;
+	    }
 
  }
 
