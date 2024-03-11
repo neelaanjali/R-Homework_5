@@ -25,6 +25,15 @@ public class PizzaOrder {
 	        }
 	        return null;
 	    }
+	    
+	    public void printListOfToppingsByPizzaOrderID(int orderID) {
+	        AbstractPizza pizza = getPizzaByOrderID(orderID);
+	        if (pizza != null) {
+	            System.out.println("Here are the toppings for this Pizza Order ID! " + orderID + ": " + pizza.getToppingList());
+	        } else {
+	            System.out.println("Sorry pizza Order ID " + orderID + " not found.");
+	        }
+	    }
 
  }
 
