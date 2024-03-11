@@ -10,6 +10,7 @@ public class MicrowaveCookingStrategy implements ICookingStrategy  {
 		pizza.setCookingPrice(1.0);
 		pizza.setCookingStrategy(this);
 		pizza.updatePizzaPrice();
+		
 		return true;
 	}
 
