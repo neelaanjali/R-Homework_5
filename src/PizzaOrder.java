@@ -65,6 +65,7 @@ public class PizzaOrder {
 	        return false;  // If the toppings's already exists in the toppings's list of the pizza, it returns false. 
 	    }
      //^^ all true for remove toppings's expect opposite actions done
+	    
 	    public boolean removeToppingFromPizza(int orderID, Toppings topping) {
 	        AbstractPizza pizza = getPizzaByOrderID(orderID);
 	        if (pizza != null && pizza.getToppingList().contains(topping)) {
@@ -76,25 +77,26 @@ public class PizzaOrder {
 	    }
 	    
 	    public boolean isThereAnyUncookedPizza() {
-	    	for (AbstractPizza pizza : pizzaOrderList) {
-	    		if(pizza.getCookingStrategy() == null) {
-	    			return true;
+	    	for (AbstractPizza pizza : pizzaOrderList) { //Iterates through each pizza in the list
+	    		if(pizza.getCookingStrategy() == null) { //Checks to see if there is a pizza that does not have a cooking strategy
+	    			return true; //Returns true if a pizza does not have a cooking strategy
 	    		}
 	    	}
-	    	return false;
+	    	return false; //Returns false if all pizzas have a cooking strategy
 	    }
 	    
 	    public double checkout() throws Exception{
-	    	boolean uncookedPizzas = isThereAnyUncookedPizza();
-	    	double totalPrice = 0;
-	    	if (uncookedPizzas == true) {
+	    	boolean uncookedPizzas = isThereAnyUncookedPizza(); //Calls isThereAnyUncookedPizza
+	    	double totalPrice = 0; //Initializes the total price
+	    	
+	    	if (uncookedPizzas == true) { //Throws an exception if there is an uncooked pizza
 	    		throw new Exception("At least one pizza is uncooked. Please assign a cooking strategy to each pizza");
 	    	}else {
-	    		for (AbstractPizza pizza : pizzaOrderList) {
-	    			totalPrice += pizza.getTotalPrice();
+	    		for (AbstractPizza pizza : pizzaOrderList) { //Executes if all pizzas are cooked
+	    			totalPrice += pizza.getTotalPrice(); //Adds the price of each pizza to the total price
 	    		}
 	    	}
-	    	return totalPrice;
+	    	return totalPrice; //Returns the total price for all pizzas in the order list
 	    }
 
  }
