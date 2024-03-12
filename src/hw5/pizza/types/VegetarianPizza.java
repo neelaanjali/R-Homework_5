@@ -5,9 +5,16 @@ import java.util.ArrayList;
 import hw5.pizza.AbstractPizza;
 import hw5.pizza.Toppings;
 
+/**
+ * concrete class extending AbstractPizza
+ * @author hargu
+ */
 public class VegetarianPizza extends AbstractPizza {
 
-	//default constructor
+	/**
+	 * default constructor
+	 * @author hargu
+	 */
 	public VegetarianPizza() {
 		super();
 		
@@ -22,6 +29,10 @@ public class VegetarianPizza extends AbstractPizza {
 		this.priceWithoutToppings = 1.50;
 	}
 	
+	/**
+	 * get instance as a string
+	 * @author hargu
+	 */
 	@Override
 	public String toString() {
 		String pizzaStr;
@@ -32,7 +43,10 @@ public class VegetarianPizza extends AbstractPizza {
 		return pizzaStr;
 	}
 	
-	//copy constructor
+	/**
+	 * copy constructor
+	 * @param oldPizza - the pizza to copy
+	 */
 	public VegetarianPizza(VegetarianPizza oldPizza) {
 		toppingList = new ArrayList<Toppings>();
 		toppingList = oldPizza.toppingList;
