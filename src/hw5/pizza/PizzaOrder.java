@@ -1,11 +1,5 @@
+package hw5.pizza;
 import java.util.List;
-
-import hw5.pizza.AbstractPizza;
-import hw5.pizza.ICookingStrategy;
-import hw5.pizza.PizzaCookingFactory;
-import hw5.pizza.PizzaType;
-import hw5.pizza.Toppings;
-
 import java.util.ArrayList;
 
 public class PizzaOrder {
