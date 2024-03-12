@@ -5,7 +5,7 @@ This project uses Java and the implementations of Factory and Strategy design
 patterns in order to build the automation of a Pizza Store. This program also 
 involves the use of Enum classes with methods and assigned values. The main purpose 
 of this program is to manage pizza orders, which includes methods for updating
-toppings, pizza price, and cooking strategies. 
+toppings, pizza price, and cooking strategies.
 
 ## Dependencies
 
