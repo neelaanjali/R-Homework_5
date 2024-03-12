@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Abstract class AbstractPizza, the super class of different pizza types.
  * @author hargu
  */
 public abstract class AbstractPizza {
@@ -16,13 +17,19 @@ public abstract class AbstractPizza {
 	protected ICookingStrategy cookingStrategy;
 	protected double cookingPrice;
 	
-	//default constructor
+	/**
+	 * Default constructor
+	 * @author hargu
+	 */
 	protected AbstractPizza() {
 		toppingList = new ArrayList<Toppings>();
 		pizzaOrderID = ++AbstractPizza.orderIDCounter;
 	}
 	
-	//toString method which will be used by the subclasses
+	/**
+	 * toString method which will be used by the subclasses
+	 * @author hargu
+	 */
 	@Override
 	public String toString() {
 		String pizzaStr;
@@ -39,8 +46,7 @@ public abstract class AbstractPizza {
 	}
 	
 	//getters and setters
-	//as of this version, all getters are public and all setters are protected
-	//the access modifier is subject to change
+
 	public List<Toppings> getToppingList() {
 		return toppingList;
 	}
