@@ -3,6 +3,7 @@ import java.util.List;
 import hw5.pizza.AbstractPizza;
 import hw5.pizza.ICookingStrategy;
 import hw5.pizza.PizzaCookingFactory;
+import hw5.pizza.PizzaType;
 
 import java.util.ArrayList;
 
@@ -42,6 +43,15 @@ public class PizzaOrder {
 	        } else {  //if not prints error message
 	            System.out.println("Sorry Pizza Order ID " + orderID + " not found.");
 	        }
+	    }
+	    
+	    public boolean addPizzaToCart(PizzaType pizzaType) {
+	        AbstractPizza pizza = pizzaFactory.createPizza(pizzaType); // This creates a new pizza instance using the pizzaFactory and the specified pizzaType
+	        if (pizza != null) {
+	            pizzaOrderList.add(pizza); // This adds the created pizza to the pizzaOrderList 
+	            return true;
+	        }
+	        return false;  //if the pizza could not be created or added to the cart
 	    }
 	    
 	    public boolean isThereAnyUncookedPizza() {
