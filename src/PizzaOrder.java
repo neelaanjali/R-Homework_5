@@ -4,6 +4,7 @@ import hw5.pizza.AbstractPizza;
 import hw5.pizza.ICookingStrategy;
 import hw5.pizza.PizzaCookingFactory;
 import hw5.pizza.PizzaType;
+import hw5.pizza.Toppings;
 
 import java.util.ArrayList;
 
@@ -52,6 +53,26 @@ public class PizzaOrder {
 	            return true;
 	        }
 	        return false;  //if the pizza could not be created or added to the cart
+	    }
+	    
+	    public boolean addNewToppingToPizza(int orderID, Toppings topping) {
+	        AbstractPizza pizza = getPizzaByOrderID(orderID); //gets pizza order with the associated orderID
+	        if (pizza != null && !pizza.getToppingList().contains(topping)) {
+	            pizza.getToppingList().add(topping); //adds toppings's
+	            pizza.updatePizzaPrice(); //updates the prices
+	            return true;
+	        }
+	        return false;  // If the toppings's already exists in the toppings's list of the pizza, it returns false. 
+	    }
+     //^^ all true for remove toppings's expect opposite actions done
+	    public boolean removeToppingFromPizza(int orderID, Toppings topping) {
+	        AbstractPizza pizza = getPizzaByOrderID(orderID);
+	        if (pizza != null && pizza.getToppingList().contains(topping)) {
+	            pizza.getToppingList().remove(topping);
+	            pizza.updatePizzaPrice();
+	            return true;
+	        }
+	        return false;
 	    }
 	    
 	    public boolean isThereAnyUncookedPizza() {
