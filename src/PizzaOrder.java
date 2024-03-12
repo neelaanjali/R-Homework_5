@@ -18,8 +18,8 @@ public class PizzaOrder {
 	    
 	    
 	    public AbstractPizza getPizzaByOrderID(int orderID) {
-	        for (AbstractPizza pizza : pizzaOrderList) {
-	            if (pizza.getPizzaOrderID() == orderID) {
+	        for (AbstractPizza pizza : pizzaOrderList) {  // goes through through each pizza order in the pizzaOrderList
+	            if (pizza.getPizzaOrderID() == orderID) {  // If the matching order is not found then return null
 	                return pizza;
 	            }
 	        }
@@ -27,11 +27,20 @@ public class PizzaOrder {
 	    }
 	    
 	    public void printListOfToppingsByPizzaOrderID(int orderID) {
-	        AbstractPizza pizza = getPizzaByOrderID(orderID);
-	        if (pizza != null) {
+	        AbstractPizza pizza = getPizzaByOrderID(orderID);  //gets pizza order with the associated orderID
+	        if (pizza != null) { //checks if the pizza order exits 
 	            System.out.println("Here are the toppings for this Pizza Order ID! " + orderID + ": " + pizza.getToppingList());
-	        } else {
+	        } else { //prints the toppings's of the pizza but if it doesn't exist then prints out error message
 	            System.out.println("Sorry pizza Order ID " + orderID + " not found.");
+	        }
+	    }
+	    
+	    public void printPizzaOrderCart(int orderID) {
+	        AbstractPizza pizza = getPizzaByOrderID(orderID); //gets pizza order with the associated orderID
+	        if (pizza != null) {//checks if the pizza order exits 
+	            System.out.println("The Pizza Order Cart for Order ID " + orderID + ":\n" + pizza);
+	        } else {  //if not prints error message
+	            System.out.println("Sorry Pizza Order ID " + orderID + " not found.");
 	        }
 	    }
 	    
