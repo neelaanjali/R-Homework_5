@@ -24,5 +24,8 @@ public class BrickOvenCookingStrategy implements ICookingStrategy {
 		pizza.updatePizzaPrice(); //Updates the pizza price
 		return true;
 	}
+	
+	@Override
+	public String toString() { return "Brick Oven"; }
 
 }

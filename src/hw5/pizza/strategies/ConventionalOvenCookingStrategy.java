@@ -24,5 +24,8 @@ public class ConventionalOvenCookingStrategy implements ICookingStrategy  {
 		
 		return true;
 	}
+	
+	@Override
+	public String toString() { return "Conventional Oven"; }
 
 }
