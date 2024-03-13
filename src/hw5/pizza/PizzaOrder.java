@@ -96,7 +96,7 @@ public class PizzaOrder {
 	        AbstractPizza pizza = getPizzaByOrderID(orderID); //gets pizza order with the associated orderID
 	        if (pizza != null && !pizza.getToppingList().contains(topping)) {
 	            pizza.getToppingList().add(topping); //adds toppings's
-	            pizza.updatePizzaPrice(); //updates the prices
+	            pizza.setTotalPrice(pizza.updatePizzaPrice() + pizza.getCookingPrice()); //updates the prices
 	            return true;
 	        }
 	        return false;  // If the toppings's already exists in the toppings's list of the pizza, it returns false. 
@@ -116,7 +116,7 @@ public class PizzaOrder {
 	        AbstractPizza pizza = getPizzaByOrderID(orderID);
 	        if (pizza != null && pizza.getToppingList().contains(topping)) {
 	            pizza.getToppingList().remove(topping);
-	            pizza.updatePizzaPrice();
+	            pizza.setTotalPrice(pizza.updatePizzaPrice() + pizza.getCookingPrice()); //updates the prices
 	            return true;
 	        }
 	        return false;
