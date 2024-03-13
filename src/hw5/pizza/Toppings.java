@@ -1,5 +1,9 @@
 package hw5.pizza;
 
+/**
+ * Enum for different toppings
+ * @author hargu
+ */
 public enum Toppings {
 	TOMATO(1.50),
 	CHEESE(2.00),
@@ -13,10 +17,20 @@ public enum Toppings {
 	
 	private final double toppingPrice;
 
+	/**
+	 * Default constructor
+	 * @param toppingPrice
+	 * @author hargu
+	 */
 	Toppings(double toppingPrice) {
 		this.toppingPrice = toppingPrice;
 	}
 	
+	/**
+	 * Get the price of a topping
+	 * @return the price of a topping
+	 * @author hargu
+	 */
 	public double getToppingPrice() {
 		return toppingPrice;
 	}
