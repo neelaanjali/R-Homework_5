@@ -16,12 +16,21 @@ public class PizzaOrder {
 	    private ICookingStrategy cookingStrategy;
 	    private List<AbstractPizza> pizzaOrderList;
 	    
+	    /**
+	     * Default Constructor
+	     * @author neelaanjali
+	     */
 	    public PizzaOrder() {
 	        this.pizzaFactory = new PizzaCookingFactory();
 	        this.pizzaOrderList = new ArrayList<>();
 	    }
 	    
-	    
+	    /**
+	     * This method finds the pizza order with the given pizza order id and returns it.
+	     * @param orderID
+	     * @return pizza with corresponding order ID
+	     * @author neelaanjali
+	     */
 	    public AbstractPizza getPizzaByOrderID(int orderID) {
 	        for (AbstractPizza pizza : pizzaOrderList) {  // goes through through each pizza order in the pizzaOrderList
 	            if (pizza.getPizzaOrderID() == orderID) {  // If the matching order is not found then return null
@@ -31,6 +40,11 @@ public class PizzaOrder {
 	        return null;
 	    }
 	    
+	    /**
+	     * This method gets the pizza order with the given pizza order ID and prints the toppings of that order.
+	     * @param orderID
+	     * @author neelaanjali
+	     */
 	    public void printListOfToppingsByPizzaOrderID(int orderID) {
 	        AbstractPizza pizza = getPizzaByOrderID(orderID);  //gets pizza order with the associated orderID
 	        if (pizza != null) { //checks if the pizza order exits 
@@ -40,6 +54,11 @@ public class PizzaOrder {
 	        }
 	    }
 	    
+	    /**
+	     * This method prints the pizzas in the pizzaOrderList
+	     * @param orderID
+	     * @author neelaanjali
+	     */
 	    public void printPizzaOrderCart(int orderID) {
 	        AbstractPizza pizza = getPizzaByOrderID(orderID); //gets pizza order with the associated orderID
 	        if (pizza != null) {//checks if the pizza order exits 
@@ -49,6 +68,12 @@ public class PizzaOrder {
 	        }
 	    }
 	    
+	    /**
+	     * This method creates a new pizza with the given PizzaType and adds it to the pizzaOrderList
+	     * @param pizzaType
+	     * @return true if successfully added, false otherwise
+	     * @author neelaanjali
+	     */
 	    public boolean addPizzaToCart(PizzaType pizzaType) {
 	        AbstractPizza pizza = pizzaFactory.createPizza(pizzaType); // This creates a new pizza instance using the pizzaFactory and the specified pizzaType
 	        if (pizza != null) {
@@ -58,6 +83,15 @@ public class PizzaOrder {
 	        return false;  //if the pizza could not be created or added to the cart
 	    }
 	    
+	    /**
+	     * This method finds the pizza order with the given ID and adds the given topping to its topping list if it doesn't already exist in the list.
+	     * If the given topping is added, it also updates the pizza price and returns true.
+	     * If this topping already exists in the topping list of the pizza, it returns false.
+	     * @param orderID
+	     * @param topping
+	     * @return True/False indicating success/failure
+	     * @author neelaanjali
+	     */
 	    public boolean addNewToppingToPizza(int orderID, Toppings topping) {
 	        AbstractPizza pizza = getPizzaByOrderID(orderID); //gets pizza order with the associated orderID
 	        if (pizza != null && !pizza.getToppingList().contains(topping)) {
@@ -69,6 +103,15 @@ public class PizzaOrder {
 	    }
      //^^ all true for remove toppings's expect opposite actions done
 	    
+	    /**
+	     * This method finds the pizza order with the given ID and removes the given topping from its topping list if it exists in the list.
+	     * If the given topping is removed, it also updates the pizza price and returns true. 
+	     * If the topping doesn't exist in the topping list of the pizza and cannot be removed, it returns false
+	     * @param orderID
+	     * @param topping
+	     * @return True/False indicating success/failure
+	     * @author neelaanjali
+	     */
 	    public boolean removeToppingFromPizza(int orderID, Toppings topping) {
 	        AbstractPizza pizza = getPizzaByOrderID(orderID);
 	        if (pizza != null && pizza.getToppingList().contains(topping)) {
