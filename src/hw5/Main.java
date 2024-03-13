@@ -10,9 +10,16 @@ import hw5.pizza.types.HawaiianPizza;
 
 public class Main {
 
-	/**
-	 * @author riannaellis
-	 */
+    /**
+     * Main method to run the pizza order management system.
+     * 
+     * This method creates a PizzaOrder instance, adds different types of pizzas to the cart,
+     * selects cooking strategies for each pizza, adds and removes toppings, prints the pizza order cart
+     * and the list of toppings for each pizza, then finally checks out the order.
+     * 
+     * @param args The command-line arguments (not used).
+     * @author riannaellis
+     */
 	
 	public static void main(String[] args) {
 
@@ -51,15 +58,6 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace(); //Catches the exception if there is an uncooked pizza
 		}
-	    
-	    
-	 
-	    
-
-	    // Adds pizzas to the cart, selects cooking strategies for the pizzas in the cart, 
-	    //prints pizza order cart. Calls checkout to calculate the bill, 
-	    //throws exception if triggered.
-
 	}
 
 }
