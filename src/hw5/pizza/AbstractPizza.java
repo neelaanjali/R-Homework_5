@@ -100,10 +100,16 @@ public abstract class AbstractPizza {
 	}
 	
 	
-	// Methods to be inherited by subclasses (no need to override):
+	//Methods to be inherited by subclasses (no need to override):
 	
-	//This method calculates the total price of the pizza using priceWithoutToppings
-	//and the prices of each topping in the toppingsList. 
+	/**
+	 * This method calculates the total price of the pizza using priceWithoutToppings
+	 * and the prices of each topping in the toppingsList. 
+	 * 
+	 * @param priceWithoutToppings
+	 * @return the total price
+	 * @author jxie26
+	 */
 	public double addToppingsToPrice(double priceWithoutToppings) {
 		//first get total price of all toppings:
 		double toppingsPrice = 0.0;
@@ -116,8 +122,13 @@ public abstract class AbstractPizza {
 		return this.totalPrice;
 	}
 	
-	//This method calculates and updates the totalPrice of the pizza using the
-	//priceWithoutToppings attribute and the price of each topping in toppingsList.
+	/**
+	 * This method calculates and updates the totalPrice of the pizza using the
+	 * priceWithoutToppings attribute and the price of each topping in toppingsList.
+	 * 
+	 * @return the total price
+	 * @author jxie26
+	 */
 	public double updatePizzaPrice() {
 		return addToppingsToPrice(priceWithoutToppings);
 	}
