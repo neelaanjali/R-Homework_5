@@ -54,7 +54,7 @@ public class Main {
 	    }
 	    
 	    try {
-			System.out.println("Total Price: $" + order.checkout()); //Tries to check out
+			System.out.println("Total Price: $" + String.format("%.2f", order.checkout())); //Tries to check out
 		} catch (Exception e) {
 			e.printStackTrace(); //Catches the exception if there is an uncooked pizza
 		}
