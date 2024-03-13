@@ -125,7 +125,7 @@ public class PizzaOrder {
 		 * @return true if the pizza is successfully cooked, false if an error occurs
 		 * @author riannaellis
 		 */
-	    public boolean selectCookigStrategyByPizzaOrderID(int orderID, CookingStyleType cookingStrategyType) {
+	    public boolean selectCookingStrategyByPizzaOrderID(int orderID, CookingStyleType cookingStrategyType) {
 	    	AbstractPizza pizza = getPizzaByOrderID(orderID); //Calls getPizzaByOrderID to find the instance of the pizza with that ID
 	    	
 	    	if(pizza == null) {
@@ -148,9 +148,7 @@ public class PizzaOrder {
 				return brickOven.cook(pizza); //Returns true/false if it successfully cooks the pizza
 			default:
 				return false; //Returns false if none of the cases match
-		}
-		
-	    	
+	    	}
 	    }
 
  }
