@@ -1,5 +1,14 @@
 package hw5.pizza;
 import java.util.List;
+
+import hw5.pizza.strategies.BrickOvenCookingStrategy;
+import hw5.pizza.strategies.ConventionalOvenCookingStrategy;
+import hw5.pizza.strategies.MicrowaveCookingStrategy;
+import hw5.pizza.types.HawaiianPizza;
+import hw5.pizza.types.MargheritaPizza;
+import hw5.pizza.types.SupremePizza;
+import hw5.pizza.types.VegetarianPizza;
+
 import java.util.ArrayList;
 
 public class PizzaOrder {
@@ -106,6 +115,42 @@ public class PizzaOrder {
 	    		}
 	    	}
 	    	return totalPrice; //Returns the total price for all pizzas in the order list
+	    }
+	    
+		/**
+		 * Gets the pizza at the given orderID, instantiates the cookingStrategy, and cooks the pizza.
+		 * 
+		 * @param orderID The order ID of a pizza
+		 * @param cookingStrategyType The cooking style type that will be used to cook the pizza
+		 * @return true if the pizza is successfully cooked, false if an error occurs
+		 * @author riannaellis
+		 */
+	    public boolean selectCookigStrategyByPizzaOrderID(int orderID, CookingStyleType cookingStrategyType) {
+	    	AbstractPizza pizza = getPizzaByOrderID(orderID); //Calls getPizzaByOrderID to find the instance of the pizza with that ID
+	    	
+	    	if(pizza == null) {
+	    		return false; //Returns false if a pizza with that order ID does not exist
+	    	}
+
+	    	//Switch case based on the CookingStyleType
+	    	switch(cookingStrategyType) {
+			case MICROWAVE:
+				MicrowaveCookingStrategy microwave = new MicrowaveCookingStrategy(); //Creates a new microwave instance
+				pizza.setCookingStrategy(microwave); //Sets the pizza's cooking strategy to microwave
+				return microwave.cook(pizza); //Returns true/false if it successfully cooks the pizza
+			case CONVENTIONAL_OVEN:
+				ConventionalOvenCookingStrategy conventionalOven = new ConventionalOvenCookingStrategy(); //Creates a new conventional oven instance
+				pizza.setCookingStrategy(conventionalOven); //Sets the pizza's cooking strategy to conventional oven
+				return conventionalOven.cook(pizza); //Returns true/false if it successfully cooks the pizza
+			case BRICK_OVEN:
+				BrickOvenCookingStrategy brickOven = new BrickOvenCookingStrategy(); //Creates a new brick oven instance
+				pizza.setCookingStrategy(brickOven); //Sets the pizza's cooking strategy to brick oven
+				return brickOven.cook(pizza); //Returns true/false if it successfully cooks the pizza
+			default:
+				return false; //Returns false if none of the cases match
+		}
+		
+	    	
 	    }
 
  }
