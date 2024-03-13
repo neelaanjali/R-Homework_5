@@ -104,7 +104,7 @@ public abstract class AbstractPizza {
 	
 	//This method calculates the total price of the pizza using priceWithoutToppings
 	//and the prices of each topping in the toppingsList. 
-	protected double addToppingsToPrice(double priceWithoutToppings) {
+	public double addToppingsToPrice(double priceWithoutToppings) {
 		//first get total price of all toppings:
 		double toppingsPrice = 0.0;
 		for (Toppings topping : toppingList) {
